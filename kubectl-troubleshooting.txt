@@ -1,0 +1,6 @@
+kubectl create secret generic cloudsql-db-credentials --from-literal=username="siva" --from-literal=password="tiger4U" --from-literal=dbname="test"
+
+kubectl delete secret cloudsql-instance-credentials
+kubectl create secret generic cloudsql-instance-credentials --from-file=sql_credentials.json
+kubectl run -i --tty busybox --image=busybox -- sh
+kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
