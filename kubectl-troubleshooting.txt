@@ -4,3 +4,9 @@ kubectl delete secret cloudsql-instance-credentials
 kubectl create secret generic cloudsql-instance-credentials --from-file=sql_credentials.json
 kubectl run -i --tty busybox --image=busybox -- sh
 kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+PGPASSWORD=pwd psql -h pgpool-svc -p 5432 -U 
+PGPASSWORD= psql -h pgpool-svc -p 5432 -U postgres
+GRANT CONNECT ON DATABASE test TO <dbuser>;
+
+touch /opt/bitnami/pgpool/conf/pgpool.conf
+pg_md5 -m --config-file="/opt/bitnami/pgpool/conf/pgpool.conf" -u "USERNAME" "PASSWORD"

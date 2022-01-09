@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: randomizer
+  name: pgsql-pyclient
   labels:
-    app: randomizer
+    app: pgsql-pyclient
 spec:
   selector:
     matchLabels:
-      app: randomizer
+      app: pgsql-pyclient
   template:
     metadata:
       labels:
-        app: randomizer
+        app: pgsql-pyclient
     spec:
       # This section describes the containers that make up the deployment
       containers:
-        - name: randomizer
+        - name: pgsql-pyclient
           # CHANGE [PROJECT_ID] to the project where your Cloud SQL instance lives
-          image: gcr.io/fair-abbey-337109/randomizer
+          image: gcr.io/fair-abbey-337109/pgsql-client
           # Set env variables used for database connection
           env:
             - name: DB_USER

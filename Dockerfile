@@ -1,13 +1,9 @@
 FROM python:3
 
-LABEL maintainer="[MAINTAINER_NAME]"
+LABEL maintainer="cubesiva"
 
 COPY ./requirements.txt /app/
-COPY ./mysql_faker.py /app/
-COPY ./postgresql_faker.py /app/
 COPY ./pgsql-con-test.py /app/
-
-
 
 WORKDIR /app
 
